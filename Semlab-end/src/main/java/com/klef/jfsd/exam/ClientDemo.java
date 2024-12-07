@@ -13,7 +13,6 @@ public class ClientDemo {
     Session session = factory.openSession();
     Transaction tx = session.beginTransaction();
 
-    // Insert Records
     Customer cust1 = new Customer();
     cust1.setName("Alice");
     cust1.setEmail("alice@example.com");
@@ -31,7 +30,7 @@ public class ClientDemo {
 
     tx.commit();
 
-    // Criteria Queries
+ 
     Criteria criteria = session.createCriteria(Customer.class);
 
     
@@ -61,7 +60,7 @@ public class ClientDemo {
     List<Customer> result4 = criteria.list();
     result4.forEach(c -> System.out.println(c.getName()));
 
-    // Cleanup
+    
     session.close();
     factory.close();
   }
